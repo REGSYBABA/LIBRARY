@@ -13,19 +13,51 @@
       <button type="button" id="newbook" class="open-nav">+</button>
       
       <nav class="side-modal">
-        <!-- <div id="large" class="modal-content">
-            <h1 id = modal-result>Winner!</h1>
-            <button id="play">Play Again</button>
-        </div> -->
         <button aria-label="close the fucking navigation" class="close-nav">&times;</button>
-        <form action="#">
-
+        <form action="#" class="add-book-form">
+          <div class="input-group">
+            <input type="text" id="book-title" placeholder="">
+            <label for="book-title">Book Title</label>
+          </div>
+          <div class="input-group">
+            <input type="text" id="author" placeholder="">
+            <label for="author">Author</label>
+          </div>
+          <div class="input-group">
+            <input type="text" id="Pages" placeholder="">
+            <label for="Pages">Number Of Pages</label>
+          </div>
+          <div class="input-group">
+            <input type="text" id="lang" placeholder="">
+            <label for="lang">Language</label>
+          </div>
+          <div class="input-group">
+            <div class="check-bok">
+                <label for="is-read">Have You Read it?</label>
+                <input type="checkbox" class="check" id="is-read" placeholder="">
+            </div>
+          </div>
+          <div class="input-group">
+            <button type="submit">Submit</button>
+          </div>
         </form>
-    </nav>
+     </nav>
     </header>
 
     <section class="main">
        <div class="book-grid">
+            <div class="book-card">
+                <div class="del-icon">
+                    <i class="material-icons">delete</i>
+                </div>
+                <div class="content">
+                    <h2>Title: John Is A Bad Bitch</h2>
+                    <h2>Author: Regsy</h2>
+                    <h2>Pages: 200pgs</h2>
+                    <button>Not Read</button>
+                </div>
+            </div>
+
             <div class="book-card">
                 <div class="del-icon">
                     <i class="material-icons">delete</i>

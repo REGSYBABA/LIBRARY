@@ -1,1 +1,112 @@
 @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Josefin+Sans:wght@300;400;500;600;700&display=swap');
+
+*, *::after, *::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    /* background-color: burlywood; */
+    background-color: #e4e9f7;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 55px;
+    /* background-color: palegoldenrod; */
+    background-color: white;
+}
+
+.lib-text{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+button.open-nav{
+   width: 60px;
+   height: 60px;
+   border: none;
+   outline: none;
+   border-radius: 50%;
+   font-size: 40px;
+   transition: all .4s ease-in-out;
+   cursor: pointer;
+}
+
+button#newbook:hover{
+  border: 2px solid aqua;
+  transform: scale(1.1) rotate(180deg);
+}
+
+/* .main{
+    display: none;
+} */
+
+.book-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 4rem;
+    padding: 55px;
+}
+
+.del-icon{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 40px;
+    margin-top: -10px;
+    font: 30px;
+}    
+
+.book-card{
+    /* background-color: antiquewhite; */
+    background-color: black;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 40px;
+    color: #ffe600;
+}
+
+.side-modal{
+    position: fixed;
+    background-color: #cacaca;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 100%;
+    transform: translateX(0);
+    transition: transform 250ms;
+}
+
+.close-nav{
+    border: 0;
+    background: none;
+    color: #ffe600;
+    font-weight: 700;
+    font-size: 3rem;
+    cursor: pointer;
+    padding: .5em;
+    position: absolute;
+}
+
+.navigation-open{
+    transform: translateX(-30%);
+}

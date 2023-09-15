@@ -4,8 +4,7 @@ const addNewBookButton = document.querySelector('.open-nav')
 const nav = document.querySelector('.side-modal')
 const submitBtn = document.querySelector('.submit-newbook')
 let libraryEl = document.querySelector('.book-grid')
-const readToggle = document.querySelector('.book-card')
-console.log(readToggle)
+
 
 closeButton.addEventListener("click", () => {
     nav.classList.remove('navigation-open')
@@ -49,7 +48,7 @@ function render() {
     for (let i = 0; i < myLibrary.length; i++) {
         let books = myLibrary[i]
         let booksEl = document.createElement("div")
-        booksEl.classList.add('book-card')
+        // booksEl.classList.add('book-card')
         // function togglebtn() {
         //     booksEl.addEventListener('click', () => {
         //         booksEl.classList.toggle('read')
@@ -58,23 +57,25 @@ function render() {
         // }
         // // togglebtn()
         booksEl.innerHTML =
-            `<div class="del-icon">
-          <i class="material-icons mat" onclick="removeBook(${i})">delete</i>
-        </div>
+            `<div class = "book-card ${books.read ? "read" : " "}">
+                <div class="del-icon">
+                <i class="material-icons mat" onclick="removeBook(${i})">delete</i>
+                </div>
 
-        <div class="content">
-          <h2>Title: ${books.title}</h2>
-          <h2>Author: ${books.author}</h2>
-          <h2>Pages: ${books.pages}</h2>
-          <h2>Language: ${books.language}</h2>
-        </div>
+                <div class="content">
+                <h2>Title: ${books.title}</h2>
+                <h2>Author: ${books.author}</h2>
+                <h2>Pages: ${books.pages}</h2>
+                <h2>Language: ${books.language}</h2>
+                </div>
 
-        <div class="toggle-switch ${books.read ? "read" : " "}">
-          <span class="controller-text">${books.read ? "Read:" : "Not Read:"}</span>
-          <div class="switch">
-            <span class="controller" onclick="toggleRead(${i})"></span>
-          </div>
-        </div>`
+                <div class="toggle-switch ${books.read ? "read" : " "}" onclick="toggleRead(${i})">
+                <span class="controller-text">${books.read ? "Read:" : "Not Read:"}</span>
+                <div class="switch">
+                    <span class="controller"></span>
+                </div>
+                </div>
+            </div>`
         libraryEl.appendChild(booksEl)
     }
 }

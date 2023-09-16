@@ -5,6 +5,8 @@ const nav = document.querySelector('.side-modal')
 const submitBtn = document.querySelector('.submit-newbook')
 let libraryEl = document.querySelector('.book-grid')
 const closeBtn = document.querySelector('.close-modal')
+const delBtn = document.getElementById('delete')
+
 
 
 closeButton.addEventListener("click", () => {
@@ -32,14 +34,6 @@ function closeModal() {
 
 closeBtn.addEventListener('click', closeModal)
 
-// function togglebtn() {
-//     libraryEl.addEventListener('click', () => {
-//         libraryEl.classList.toggle('read')
-//         console.log('b')
-
-//     })
-// }
-// togglebtn()
 
 const myLibrary = [];
 
@@ -103,6 +97,13 @@ function removeBook(index) {
     myLibrary.splice(index, 1)
     render()
 }
+
+delBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    removeBook()
+    render()
+    closeModal()
+})
 
 function addBookToLibrary() {
     let title = document.querySelector('#book-title').value

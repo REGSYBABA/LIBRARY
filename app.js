@@ -4,6 +4,7 @@ const addNewBookButton = document.querySelector('.open-nav')
 const nav = document.querySelector('.side-modal')
 const submitBtn = document.querySelector('.submit-newbook')
 let libraryEl = document.querySelector('.book-grid')
+const closeBtn = document.querySelector('.close-modal')
 
 
 closeButton.addEventListener("click", () => {
@@ -13,6 +14,23 @@ closeButton.addEventListener("click", () => {
 addNewBookButton.addEventListener("click", () => {
     nav.classList.add('navigation-open')
 })
+
+
+const showModal = (openButton, modalContent) => {
+    const openBtn = document.getElementById(openButton),
+        modalContainer = document.getElementById(modalContent)
+
+    if (openBtn && modalContainer) {
+        modalContainer.classList.add('show-modal')
+    }
+}
+
+function closeModal() {
+    const modalContainer = document.getElementById('modal-container')
+    modalContainer.classList.remove('show-modal')
+}
+
+closeBtn.addEventListener('click', closeModal)
 
 // function togglebtn() {
 //     libraryEl.addEventListener('click', () => {
@@ -59,7 +77,7 @@ function render() {
         booksEl.innerHTML =
             `<div class = "book-card ${books.read ? "read" : " "}">
                 <div class="del-icon">
-                <i class="material-icons mat" onclick="removeBook(${i})">delete</i>
+                <i class="material-icons mat" id="open-modal" onclick="showModal('open-modal', 'modal-container')">delete</i>
                 </div>
 
                 <div class="content">
@@ -77,6 +95,7 @@ function render() {
                 </div>
             </div>`
         libraryEl.appendChild(booksEl)
+        // onclick="removeBook(${i})
     }
 }
 

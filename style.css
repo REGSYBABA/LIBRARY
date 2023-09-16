@@ -14,6 +14,13 @@
   --text: #212121;
   --shadowColor: #e4e9f7;
   --shadowColor2: #dcd130;
+  --hue: 240;
+  --first-color: hsl(var(--hue), 16%, 18%);
+  --first-color-alt: hsl(var(--hue), 16%, 12%);
+  --title-colot: hsl(var(--hue), 8%, 15%);
+  --text-color: hsl(var(--hue), 8%, 35%);
+  --body-color: hsl(var(--hue), 100%, 99%);
+  --container-color: #fff;
 }
 
 body {
@@ -297,4 +304,141 @@ button[type="submit"] {
   padding: var(--x) var(--y);
   text-align: left;
   cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.modal {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  margin: 0 1rem;
+}
+
+.modal__button {
+  display: inline-block;
+  background-color: var(--first-color);
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+}
+
+.modal__button:hover {
+  background-color: var(--first-color-alt);
+}
+
+.modal__container {
+  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: hsla(var(--hue), 18%, 75%, 0.8);
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-items: flex-end;
+  overflow: hidden;
+  transition: all 0.3s;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  backdrop-filter: blur(2px);
+  overflow: hidden;
+}
+
+.modal-content {
+  position: relative;
+  background-color: var(--container-color);
+  text-align: center;
+  padding: 3rem 2rem 2rem;
+  border-radius: 1rem 1rem 0 0;
+  transition: all 0.3s;
+
+  transform: translateY(10%);
+}
+
+.modal__img {
+  width: 150px;
+  margin-bottom: 0.75rem;
+}
+
+.modal__close {
+  display: inline-flex;
+  background-color: var(--first-color);
+  border-radius: 0.25rem;
+  color: #fff;
+  font-size: 1.5rem;
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  cursor: pointer;
+}
+
+.modal__title {
+  font-weight: 700;
+  color: black;
+  margin-bottom: 0.5rem;
+}
+
+.modal__description {
+  margin-bottom: 1.5rem;
+}
+
+.modal__button-width {
+  width: 90%;
+  cursor: pointer;
+}
+
+.modal__button-link {
+  display: block;
+  margin: 1rem auto 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: var(--first-color);
+}
+
+.show-modal {
+  visibility: visible;
+  opacity: 1;
+}
+
+.show-modal .modal-content {
+  transform: translateY(0);
+}
+
+@media screen and (min-width: 576px) {
+  .modal-content {
+    margin: auto;
+    width: 380px;
+    border-radius: 1.25rem;
+  }
+
+  .modal__img {
+    width: 170px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  body {
+    overflow: hidden;
+  }
+  .navigation-open {
+    transform: translateX(-100%);
+    overflow: hidden;
+  }
+  .add-book-form {
+    padding: 0;
+    top: 200px;
+  }
 }

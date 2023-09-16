@@ -1,15 +1,13 @@
 const body = document.querySelector('body')
-const closeButton = document.querySelector('.close-nav')
+const closeNewBookButton = document.querySelector('.close-nav')
 const addNewBookButton = document.querySelector('.open-nav')
 const nav = document.querySelector('.side-modal')
 const submitBtn = document.querySelector('.submit-newbook')
 let libraryEl = document.querySelector('.book-grid')
-const closeBtn = document.querySelector('.close-modal')
+const closeBtn = document.querySelectorAll('.close-modal')
 const delBtn = document.getElementById('delete')
 
-
-
-closeButton.addEventListener("click", () => {
+closeNewBookButton.addEventListener("click", () => {
     nav.classList.remove('navigation-open')
 })
 
@@ -32,7 +30,7 @@ function closeModal() {
     modalContainer.classList.remove('show-modal')
 }
 
-closeBtn.addEventListener('click', closeModal)
+closeBtn.forEach(closebutton => closebutton.addEventListener('click', closeModal))
 
 
 const myLibrary = [];
@@ -71,7 +69,7 @@ function render() {
         booksEl.innerHTML =
             `<div class = "book-card ${books.read ? "read" : " "}">
                 <div class="del-icon">
-                <i class="material-icons mat" id="open-modal" onclick="showModal('open-modal', 'modal-container')">delete</i>
+                <i class="material-icons mat" id="open-modal" onclick="showModal('open-modal', 'modal-container')", onclick="removeBook(${i})">delete</i>
                 </div>
 
                 <div class="content">
@@ -89,7 +87,7 @@ function render() {
                 </div>
             </div>`
         libraryEl.appendChild(booksEl)
-        // onclick="removeBook(${i})
+        // onclick="showModal('open-modal', 'modal-container')" onclick="removeBook(${i})
     }
 }
 
@@ -97,13 +95,6 @@ function removeBook(index) {
     myLibrary.splice(index, 1)
     render()
 }
-
-delBtn.addEventListener('click', (e) => {
-    e.preventDefault()
-    removeBook()
-    render()
-    closeModal()
-})
 
 function addBookToLibrary() {
     let title = document.querySelector('#book-title').value
@@ -120,4 +111,10 @@ function addBookToLibrary() {
 submitBtn.addEventListener('click', function (e) {
     e.preventDefault()
     addBookToLibrary()
+})
+
+delBtn.addEventListener('click', () => {
+    removeBook()
+    render()
+    closeModal()
 })

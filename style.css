@@ -29,6 +29,10 @@ body {
   font-family: "Josefin Sans", sans-serif;
 }
 
+button {
+  font-family: "Josefin Sans", sans-serif;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -193,7 +197,7 @@ i:hover {
   border: 0;
   background: none;
   color: #ffe600;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 3rem;
   cursor: pointer;
   padding: 0.5em;
@@ -352,7 +356,8 @@ img {
   visibility: hidden;
   opacity: 0;
   backdrop-filter: blur(2px);
-  overflow: hidden;
+
+  perspective: 1000px;
 }
 
 .modal-content {
@@ -363,7 +368,10 @@ img {
   border-radius: 1rem 1rem 0 0;
   transition: all 0.3s;
 
-  transform: translateY(10%);
+  /* transform: translateY(10%); */
+  /* transform: scale(0.5) translateY(10%); */
+  transform: rotateX(65deg) scale(0.75) translateY(10%);
+  transform-origin: 50% 100%;
 }
 
 .modal__img {
@@ -387,10 +395,12 @@ img {
   font-weight: 700;
   color: black;
   margin-bottom: 0.5rem;
+  text-transform: capitalize;
 }
 
 .modal__description {
   margin-bottom: 1.5rem;
+  text-transform: capitalize;
 }
 
 .modal__button-width {
@@ -414,7 +424,9 @@ img {
 }
 
 .show-modal .modal-content {
-  transform: translateY(0);
+  /* transform: translateY(0); */
+  /* transform: scale(1) translateY(0); */
+  transform: rotateX(0) scale(1) translateY(0);
 }
 
 @media screen and (min-width: 576px) {
@@ -431,11 +443,11 @@ img {
 
 @media screen and (max-width: 576px) {
   body {
-    overflow: hidden;
+    overflow: auto;
   }
   .navigation-open {
     transform: translateX(-100%);
-    overflow: hidden;
+    overflow: auto;
   }
   .add-book-form {
     padding: 0;

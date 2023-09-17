@@ -52,66 +52,6 @@ function toggleRead(index) {
     render()
 }
 
-function render() {
-    let libraryEl = document.querySelector('.book-grid')
-    libraryEl.innerHTML = ""
-    for (let i = 0; i < myLibrary.length; i++) {
-        let books = myLibrary[i]
-        let booksEl = document.createElement("div")
-        modalEl = document.getElementById('delete-modal')
-        // booksEl.classList.add('book-card')
-        // function togglebtn() {
-        //     booksEl.addEventListener('click', () => {
-        //         booksEl.classList.toggle('read')
-        //         console.log('b')
-        //     })
-        // }
-        // // togglebtn()
-        booksEl.innerHTML =
-            `<div class = "book-card ${books.read ? "read" : " "}">
-                <div class="del-icon">
-                <i class="material-icons mat" id="open-modal" onclick="showModal('open-modal', 'modal-container')", onclick="removeBook(${i})">delete</i>
-                </div>
-
-                <div class="content">
-                <h2>Title: ${books.title}</h2>
-                <h2>Author: ${books.author}</h2>
-                <h2>Pages: ${books.pages}</h2>
-                <h2>Language: ${books.language}</h2>
-                </div>
-
-                <div class="toggle-switch ${books.read ? "read" : " "}" onclick="toggleRead(${i})">
-                <span class="controller-text">${books.read ? "Read:" : "Not Read:"}</span>
-                <div class="switch">
-                    <span class="controller"></span>
-                </div>
-                </div>
-            </div>`
-
-        modalEl.innerHTML = ` <div class="modal__container" id="modal-container">
-        <div class="modal-content">
-          <div class="modal__close" title="Close">
-            <i class="material-icons close-modal">close</i>
-          </div>
-
-          <img src="img/thrash.png" alt="thrash" class="modal__img" />
-
-          <h4 class="modal__title">
-            Are You Sure You Want to delete this book?
-          </h4>
-          <p class="modal__description">once done cannot be undone</p>
-
-          <button class="modal__button modal__button-width" id="delete" onclick="removeBook(${i})">
-            Very Sure
-          </button>
-          <button class="modal__button-link close-modal">Go Back</button>
-        </div>
-      </div>`
-        libraryEl.appendChild(booksEl)
-        // onclick="showModal('open-modal', 'modal-container')" onclick="removeBook(${i})
-    }
-}
-
 function removeBook(index) {
     myLibrary.splice(index, 1)
     render()
@@ -134,9 +74,9 @@ submitBtn.addEventListener('click', function (e) {
     addBookToLibrary()
 })
 
-delBtn.addEventListener('click', (e) => {
-    e.preventDefault()
-    removeBook()
-    render()
-    closeModal()
-})
+// delBtn.addEventListener('click', (e) => {
+//     e.preventDefault()
+//     removeBook()
+//     render()
+//     closeModal()
+// })

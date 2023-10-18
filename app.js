@@ -71,6 +71,7 @@ function addBookToLibrary() {
     let id = myLibrary.length
     let newBook = new Book(title, author, pages, language, read, id)
     myLibrary.push(newBook)
+    saveToLocalStorage()
     console.log(myLibrary)
     render()
 }
@@ -193,9 +194,24 @@ const validateInputs = () => {
     return true;
 }
 
+function saveToLocalStorage() {
+    localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+}
+
+function loadFromLocalStorage() {
+    const storedData = localStorage.getItem('myLibrary');
+    if (storedData) {
+        myLibrary = JSON.parse(storedData);
+        render();
+    }
+}
+
 function deleteBook() {
     const bookIndex = document.getElementById('delete').getAttribute('data-index');
     myLibrary.splice(bookIndex, 1);
+    saveToLocalStorage()
     closeModal();
     render();
 }
+
+loadFromLocalStorage()

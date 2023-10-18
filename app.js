@@ -170,7 +170,7 @@ const validateInputs = () => {
     }
 
     if (authorVal === '') {
-        setError(author, 'Last name is required')
+        setError(author, "Author's name is required")
         return false;
     } else {
         setSuccess(author)

@@ -162,15 +162,15 @@ const validateInputs = () => {
     } else if (bookTitleVal.length < 4) {
         setError(bookTitle, "Book's name should be more than 4")
         return false;
-    } else if (/\d/.test(bookTitleVal)) {
-        setError(bookTitle, "Book's name can't contain a number");
-        return false;
     } else {
         setSuccess(bookTitle)
     }
 
     if (authorVal === '') {
         setError(author, "Author's name is required")
+        return false;
+    } else if (/\d/.test(bookTitleVal)) {
+        setError(bookTitle, "Author's name can't contain a number");
         return false;
     } else {
         setSuccess(author)

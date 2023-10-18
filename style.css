@@ -232,6 +232,19 @@ i:hover {
   margin-left: calc(var(--x) + 25px);
 }
 
+.input-group.success input {
+  border: rgb(0, 183, 255) 2px solid;
+}
+
+.input-group.error input {
+  border: 2px solid rgb(180, 42, 65);
+}
+
+.error {
+  margin-top: -2.35rem;
+  padding-top: -10rem;
+}
+
 input {
   border: 1px solid var(--secondary);
   font-size: 1rem;
@@ -297,7 +310,7 @@ input:focus {
   border: none;
 }
 
-button[type="submit"] {
+.submit-newbook {
   background-color: transparent;
   outline: none;
   border: 1px solid var(--secondary);
